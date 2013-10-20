@@ -12,8 +12,6 @@ class PinsController < ApplicationController
   end
 
   def new
-    # @pin = Pin.new # this is that old old
-    # New one is building with a Devise helper --- I think
     @pin = current_user.pins.build
   end
 
