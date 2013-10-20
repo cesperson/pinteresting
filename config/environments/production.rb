@@ -82,4 +82,15 @@ Pinteresting::Application.configure do
   # Set this to actual hostname
   # Not sure if this is right, I think it should be an actual domain
   config.action_mailer.default_url_options = { :host => 'http://cesteresting.herokuapp.com/' }
+
+  # Sets paperclip to uplaod images to Amazon S3
+  # ENV stuff lets you do super secret stuff and keep it super secret
+  config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+          :bucket => ENV['AWS_BUCKET'],
+          :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+          :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      }
+  }
 end
