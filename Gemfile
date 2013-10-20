@@ -46,6 +46,9 @@ end
 # Devise
 gem 'devise', '~> 3.1.1'
 
+# Paperclip
+gem 'paperclip', '~> 3.0'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
