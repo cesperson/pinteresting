@@ -32,6 +32,9 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
+# jQuery Turbolinkks
+gem 'jquery-turbolinks'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
@@ -52,6 +55,8 @@ gem 'paperclip', '~> 3.0'
 # AWS S3
 gem 'aws-sdk', '~> 1.16.1'
 
+# Masonry
+gem 'masonry-rails', '~> 0.2.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

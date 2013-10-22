@@ -1,5 +1,21 @@
-<h1>Listing pins</h1>
+<% @pins.each do |pin| %>
+    <div class="pin pin--panel panel panel-default">
+      <%= image_tag pin.image.url(:medium) %>
+      <div class="pin--panel--description">
+        <%= pin.description %>
+        <%= pin.user.email if pin.user %>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="btn btn-default"><%= link_to 'Show', pin %></button>
+        <% if pin.user == current_user %>
+            <button type="button" class="btn btn-default"><%= link_to 'Edit', edit_pin_path(pin) %></button>
+            <button type="button" class="btn btn-default"><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+        <% end %>
+      </div>
+    </div>
+<% end %>
 
+<!--
 <table>
   <thead>
   <tr>
@@ -15,6 +31,7 @@
   <% @pins.each do |pin| %>
       <tr>
         <td><%= image_tag pin.image.url(:thumb) %></td>
+
         <td><%= pin.description %></td>
         <td><%= pin.created_at %></td>
         <td><%= pin.user_id %></td>
@@ -29,7 +46,5 @@
   <% end %>
   </tbody>
 </table>
+-->
 
-<br>
-
-<%= link_to 'New Pin', new_pin_path %>

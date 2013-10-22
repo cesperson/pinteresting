@@ -1,3 +1,43 @@
 // Place all the styles related to the pins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.pin {
+  position: relative;
+  display: inline-block;
+  margin: 5px;
+}
+
+.pin--panel {
+  float: left;
+}
+
+.pin--panel img {
+  width: 214px;
+}
+
+.pin--panel > .btn-group {
+  position: absolute;
+  bottom: 0;
+  visibility: hidden;
+}
+
+.pin:hover > .btn-group, .pin:hover > .pin--panel--description {
+  visibility: visible;
+}
+
+.pin--panel--description {
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+
+  background: rgba(4, 255, 208, 0.95);
+  width: 100%;
+  padding: 20px;
+}
+
+
+
+
+

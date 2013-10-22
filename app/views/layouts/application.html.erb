@@ -9,7 +9,7 @@
 <body>
 
     <%= render 'layouts/header' %>
-    <div class="container">
+    <div id="pins" class="container transitions-enabled">
       <!-- adding flash message here for Devise -->
       <% flash.each do |name, msg| %>
         <%= content_tag(:div, msg, class: "alert alert-info") %>
