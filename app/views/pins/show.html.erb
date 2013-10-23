@@ -1,11 +1,26 @@
-<%= image_tag @pin.image.url(:medium) %>
+<div class="pin pin--panel single-pin">
+  <%= link_to 'Back', pins_path %>
+  <%= image_tag @pin.image.url(:original) %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @pin.description %>
-</p>
+  <div class="panel-body">
+    <p>
+      <strong>Description:</strong>
+      <%= @pin.description %>
+    </p>
+    <% if @pin.user == current_user %>
+          <%= link_to edit_pin_path(@pin) do %>
+              <span class="glyphicon glyphicon-plus"></span> Edit
+          <% end %>
+    <% end %>
+  </div>
 
+  <!--
 <% if @pin.user == current_user %>
-    <%= link_to 'Edit', edit_pin_path(@pin) %> |
+  <li>
+    <%= link_to edit_pin_path(@pin) do %>
+        <span class="glyphicon glyphicon-plus"></span> Edit
+    <% end %>
+  </li>
 <% end %>
-<%= link_to 'Back', pins_path %>
+-->
+</div>

@@ -13,8 +13,17 @@
   float: left;
 }
 
+.pin--panel.single-pin {
+  clear: both;
+}
+
 .pin--panel img {
   width: 214px;
+}
+
+.pin--panel.single-pin img {
+  width: auto;
+  max-width: 800px;
 }
 
 .pin--panel > .btn-group {
@@ -37,6 +46,14 @@
   padding: 20px;
 }
 
+.pin--panel--actions {
+  width: 100%;
+  padding: 5%;
+  background: #fff;
+}
+
+.pin--panel--actions a {
+}
 
 
 

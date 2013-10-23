@@ -1,50 +1,22 @@
+<%= render 'pages/home' unless user_signed_in? %>
+<div id="pins" class="container transitions-enabled">
 <% @pins.each do |pin| %>
     <div class="pin pin--panel panel panel-default">
-      <%= image_tag pin.image.url(:medium) %>
+      <%= link_to image_tag(pin.image.url(:medium)), pin %>
       <div class="pin--panel--description">
         <%= pin.description %>
         <%= pin.user.email if pin.user %>
       </div>
-      <div class="btn-group">
-        <button type="button" class="btn btn-default"><%= link_to 'Show', pin %></button>
         <% if pin.user == current_user %>
-            <button type="button" class="btn btn-default"><%= link_to 'Edit', edit_pin_path(pin) %></button>
-            <button type="button" class="btn btn-default"><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+          <div class="btn-group pin--panel--actions">
+            <%= link_to edit_pin_path(pin) do %>
+                <span class="glyphicon glyphicon-edit"></span> Edit
+            <% end %>
+            <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <span class="glyphicon glyphicon-trash"></span> Destroy
+            <% end %>
+          </div>
         <% end %>
-      </div>
     </div>
 <% end %>
-
-<!--
-<table>
-  <thead>
-  <tr>
-    <th>Image</th>
-    <th>Description</th>
-    <th>Created At</th>
-    <th>User Id</th>
-    <th></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @pins.each do |pin| %>
-      <tr>
-        <td><%= image_tag pin.image.url(:thumb) %></td>
-
-        <td><%= pin.description %></td>
-        <td><%= pin.created_at %></td>
-        <td><%= pin.user_id %></td>
-        <td><%= pin.user.email if pin.user %></td>
-        <td><%= link_to 'Show', pin %></td>
-
-        <% if pin.user == current_user %>
-            <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
-            <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
--->
-
+</div>
